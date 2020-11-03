@@ -3,12 +3,12 @@ import { View, Text } from 'react-native';
 
 import styles from './styles';
 
-function ListaReceitas() {
+function ListaIngredientes() {
     return (
         <View>
-            <Text style={styles.texto}>Lista Receitas</Text>
+            <Text style={styles.texto}>Lista Ingredientes</Text>
         </View>
     );
 }
 
-export default ListaReceitas;
+export default ListaIngredientes;
