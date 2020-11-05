@@ -13,7 +13,7 @@ const { Navigator, Screen } = createStackNavigator();
 function AppStack() {
     return (
         <NavigationContainer>
-            <Navigator screenOptions={{ headerShown: false }}>
+            <Navigator screenOptions={{ headerShown: true }}>
                 <Screen name="Tab" component={TabNavigation} />
                 <Screen name="CadastraReceita" component={CadastraReceita} />
                 <Screen name="CadastraIngrediente" component={CadastraIngrediente} />
