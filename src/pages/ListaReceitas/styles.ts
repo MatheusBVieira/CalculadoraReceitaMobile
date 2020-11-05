@@ -6,17 +6,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
 
-    texto: {
-        fontSize: 20,
-        color: '#000000'
-    },
-
     botao: {
-        backgroundColor: '#ff0033',
-        width: 50,
-        height: 50,
+        backgroundColor: '#ff0066',
+        width: 60,
+        height: 60,
         alignSelf: 'flex-end',
-        margin: 10,
+        margin: 20,
         borderRadius: 50
     }
 });

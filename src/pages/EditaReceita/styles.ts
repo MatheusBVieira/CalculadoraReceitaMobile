@@ -8,15 +8,6 @@ const styles = StyleSheet.create({
 
     texto: {
         fontSize: 20
-    },
-
-    botao: {
-        backgroundColor: '#ff0066',
-        width: 60,
-        height: 60,
-        alignSelf: 'flex-end',
-        margin: 20,
-        borderRadius: 50
     }
 });
 
