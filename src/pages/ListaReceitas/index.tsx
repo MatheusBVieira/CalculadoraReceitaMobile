@@ -1,7 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import ItemReceita from '../../components/ItemReceita';
 
 import styles from './styles';
 
@@ -14,7 +15,14 @@ function ListaReceitas() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.texto}>Lista Receitas</Text>
+            <View>
+                <ItemReceita 
+                    titulo='Brownie' 
+                    ingredientes={['farinha', 'ovos', 'óleo', 'chocolate em pó']}
+                    embalagem='marmita média' 
+                />
+            </View>
+
             <BorderlessButton style={styles.botao} onPress={vaiParaCadastraReceita}></BorderlessButton>
         </View>
     );
