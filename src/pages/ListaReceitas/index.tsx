@@ -1,8 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import ItemReceita from '../../components/ItemReceita';
+
+import {Ionicons} from '@expo/vector-icons';
 
 import styles from './styles';
 
@@ -10,7 +12,7 @@ function ListaReceitas() {
     const { navigate } = useNavigation();
 
     function vaiParaCadastraReceita() {
-        navigate('CadastraReceita')
+        navigate('Cadastra Receita')
     }
 
     return (
@@ -23,7 +25,9 @@ function ListaReceitas() {
                 />
             </View>
 
-            <BorderlessButton style={styles.botao} onPress={vaiParaCadastraReceita}></BorderlessButton>
+            <BorderlessButton style={styles.botao} onPress={vaiParaCadastraReceita}>
+                <Ionicons name="ios-add" size={50} color="#fefefe" />
+            </BorderlessButton>
         </View>
     );
 }

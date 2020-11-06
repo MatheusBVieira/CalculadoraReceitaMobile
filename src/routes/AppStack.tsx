@@ -8,6 +8,7 @@ import CadastraReceita from '../pages/CadastraReceita';
 import CadastraIngrediente from '../pages/CadastraIngrediente';
 import CadastraEmbalagem from '../pages/CadastraEmbalagem';
 import EditaReceita from '../pages/EditaReceita';
+import EditaIngrediente from '../pages/EditaIngrediente';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -15,11 +16,12 @@ function AppStack() {
     return (
         <NavigationContainer>
             <Navigator screenOptions={{ headerShown: true }}>
-                <Screen name="Tab" component={TabNavigation} />
-                <Screen name="EditaReceita" component={EditaReceita} />
-                <Screen name="CadastraReceita" component={CadastraReceita} />
-                <Screen name="CadastraIngrediente" component={CadastraIngrediente} />
-                <Screen name="CadastraEmbalagem" component={CadastraEmbalagem} />
+                <Screen name="Listagem Estoque" component={TabNavigation} />
+                <Screen name="Edita Receita" component={EditaReceita} />
+                <Screen name="Cadastra Receita" component={CadastraReceita} />
+                <Screen name="Edita Ingrediente" component={EditaIngrediente} />
+                <Screen name="Cadastra Ingrediente" component={CadastraIngrediente} />
+                <Screen name="Cadastra Embalagem" component={CadastraEmbalagem} />
             </Navigator>
         </NavigationContainer>
     );

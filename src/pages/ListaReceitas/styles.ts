@@ -12,7 +12,9 @@ const styles = StyleSheet.create({
         height: 60,
         alignSelf: 'flex-end',
         margin: 20,
-        borderRadius: 50
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 
