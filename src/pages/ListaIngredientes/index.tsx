@@ -1,34 +1,20 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text } from 'react-native';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { View } from 'react-native';
 
-import {Ionicons} from '@expo/vector-icons';
+import ItemPequeno from '../../components/ItemPequeno';
+import BotaoCadastro from '../../components/BotaoCadastro';
 
 import styles from './styles';
-import ItemIngrediente from '../../components/ItemIngrediente';
 
 function ListaIngredientes() {
-    const { navigate } = useNavigation();
-
-    function vaiParaEditaIngrediente() {
-        navigate('Edita Ingrediente')
-    }
-
-    function vaiParaCadastraIngrediente() {
-        navigate('Cadastra Ingrediente')
-    }
-
     return (
         <View style={styles.container}>
             <View>
-                <ItemIngrediente titulo='Farinha' preco={2} />
-                <ItemIngrediente titulo='Chocolate em pó' preco={5} />
+                <ItemPequeno titulo='Farinha' preco={2} para='Edita Ingrediente'/>
+                <ItemPequeno titulo='Chocolate em pó' preco={5} para='Edita Ingrediente'/>
             </View>
 
-            <BorderlessButton style={styles.botao} onPress={vaiParaCadastraIngrediente}>
-                <Ionicons name="ios-add" size={50} color="#fefefe" />
-            </BorderlessButton>
+            <BotaoCadastro para='Cadastra Ingrediente' />
         </View>
     );
 }

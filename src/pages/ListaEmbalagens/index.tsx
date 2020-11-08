@@ -1,25 +1,19 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Text, View } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
-
-import {Ionicons} from '@expo/vector-icons';
+import { View } from 'react-native';
 
 import styles from './styles';
+import ItemPequeno from '../../components/ItemPequeno';
+import BotaoCadastro from '../../components/BotaoCadastro';
 
 function ListaEmbalagens() {
-    const { navigate } = useNavigation();
-
-    function vaiParaCadastraEmbalagem() {
-        navigate('Cadastra Embalagem');
-    }
-
     return (
         <View style={styles.container}>
-            <Text style={styles.texto}>Lista Embalagens</Text>
-            <BorderlessButton style={styles.botao} onPress={vaiParaCadastraEmbalagem}>
-                <Ionicons name="ios-add" size={50} color="#fefefe" />
-            </BorderlessButton>
+            <View>
+                <ItemPequeno titulo='Marmita pequena' preco={3} para='Edita Embalagem' />
+                <ItemPequeno titulo='Marmita média' preco={5} para='Edita Embalagem' />
+            </View>
+
+            <BotaoCadastro para='Cadastra Embalagem' />
         </View>
     );
 }

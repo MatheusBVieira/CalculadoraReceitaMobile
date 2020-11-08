@@ -5,21 +5,22 @@ import { RectButton } from 'react-native-gesture-handler';
 
 import styles from './styles';
 
-interface ItemIngredienteProps {
+interface ItemPequenoProps {
     titulo: string;
     preco: number;
+    para: string;
 }
 
-const ItemIngrediente: React.FC<ItemIngredienteProps> = ({ titulo, preco }) => {
+const ItemPequeno: React.FC<ItemPequenoProps> = ({ titulo, preco, para }) => {
     const { navigate } = useNavigation();
 
-    function vaiParaEditaIngrediente() {
-        navigate('Edita Ingrediente')
+    function vaiParaPaginaDeEdicao() {
+        navigate(para)
     }
 
     return (
         <View style={styles.itemIngrediente}>
-            <RectButton onPress={vaiParaEditaIngrediente}>
+            <RectButton onPress={vaiParaPaginaDeEdicao}>
                 <Text style={styles.titulo}>{titulo}</Text>
                 <View style={styles.corpoItem}>
                     <Text>Preço por unidade:</Text>
@@ -30,4 +31,4 @@ const ItemIngrediente: React.FC<ItemIngredienteProps> = ({ titulo, preco }) => {
     )
 }
 
-export default ItemIngrediente;
+export default ItemPequeno;
