@@ -10,7 +10,8 @@ function ListaReceitas() {
     return (
         <View style={styles.container}>
             <View>
-                <ItemReceita 
+                <ItemReceita
+                    id={1}
                     titulo='Brownie' 
                     ingredientes={['farinha', 'ovos', 'óleo', 'chocolate em pó']}
                     embalagem='marmita média' 

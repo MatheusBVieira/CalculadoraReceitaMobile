@@ -10,8 +10,8 @@ function ListaIngredientes() {
     return (
         <View style={styles.container}>
             <View>
-                <ItemPequeno titulo='Farinha' preco={2} para='Edita Ingrediente'/>
-                <ItemPequeno titulo='Chocolate em pó' preco={5} para='Edita Ingrediente'/>
+                <ItemPequeno titulo='Farinha' preco={2} para='Detalhe Ingrediente'/>
+                <ItemPequeno titulo='Chocolate em pó' preco={5} para='Detalhe Ingrediente'/>
             </View>
 
             <BotaoCadastro para='Cadastra Ingrediente' />

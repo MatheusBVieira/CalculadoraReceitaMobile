@@ -14,12 +14,12 @@ interface BotaoCadastroProps {
 const BotaoCadastro: React.FC<BotaoCadastroProps> = ({ para }) => {
     const { navigate } = useNavigation();
 
-    function vaiParaCadastro() {
+    function vaiParaEdicao() {
         navigate(para)
     }
 
     return (
-        <BorderlessButton style={styles.botao} onPress={vaiParaCadastro}>
+        <BorderlessButton style={styles.botao} onPress={vaiParaEdicao}>
             <Ionicons name="ios-add" size={50} color="#fefefe" />
         </BorderlessButton>
     )

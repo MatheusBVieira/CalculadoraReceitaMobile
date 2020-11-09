@@ -6,16 +6,17 @@ import { RectButton } from 'react-native-gesture-handler';
 import styles from './styles';
 
 interface ItemReceitaProps {
+    id: number;
     titulo: string;
     ingredientes: Array<string>;
     embalagem: string;
 }
 
-const ItemReceita: React.FC<ItemReceitaProps> = ({ titulo, ingredientes, embalagem }) => {
+const ItemReceita: React.FC<ItemReceitaProps> = ({ id, titulo, ingredientes, embalagem }) => {
     const { navigate } = useNavigation();
 
     function vaiParaEditaReceita() {
-        navigate('Edita Receita')
+        navigate('Detalhe Receita')
     }
 
     return (
@@ -25,7 +26,7 @@ const ItemReceita: React.FC<ItemReceitaProps> = ({ titulo, ingredientes, embalag
 
                 <View style={styles.corpoReceita}>
                     <View>
-                        {ingredientes.map((ingrediente => <Text style={styles.ingredienteReceita}>{ingrediente}</Text>))}
+                        {ingredientes.map((ingrediente => <Text key={id++} style={styles.ingredienteReceita}>{ingrediente}</Text>))}
                     </View>
                     <View style={styles.corpoEsquerdoReceita}>
                         <Text style={styles.embalagemReceita}>{ embalagem }</Text>

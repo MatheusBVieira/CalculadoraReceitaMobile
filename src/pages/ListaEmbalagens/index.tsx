@@ -9,8 +9,8 @@ function ListaEmbalagens() {
     return (
         <View style={styles.container}>
             <View>
-                <ItemPequeno titulo='Marmita pequena' preco={3} para='Edita Embalagem' />
-                <ItemPequeno titulo='Marmita média' preco={5} para='Edita Embalagem' />
+                <ItemPequeno titulo='Marmita pequena' preco={3} para='Detalhe Embalagem' />
+                <ItemPequeno titulo='Marmita média' preco={5} para='Detalhe Embalagem' />
             </View>
 
             <BotaoCadastro para='Cadastra Embalagem' />
