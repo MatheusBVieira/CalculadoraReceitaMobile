@@ -5,11 +5,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#ff0066',
         width: 60,
         height: 60,
-        alignSelf: 'flex-end',
         margin: 20,
         borderRadius: 50,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        position: "absolute",
+        bottom: 10,                                                    
+        right: 10,  
     }
 });
 
