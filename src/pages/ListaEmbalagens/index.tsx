@@ -27,11 +27,13 @@ function ListaEmbalagens() {
         })
     })
 
-    const Item = ({nome, preco, quantidade} : { nome: string, preco: number, quantidade: number}) => (
-        <ItemEmbalagem titulo={nome} preco={preco} quantidade={quantidade} />
+    let itemExemplo: { id:number, nome: string, preco: number, quantidade: number};
+
+    const Item = ({id, nome, preco, quantidade} : typeof itemExemplo) => (
+        <ItemEmbalagem id={id} nome={nome} preco={preco} quantidade={quantidade} />
     );
 
-    let itemExemplo: { id:number, nome: string, preco: number, quantidade: number};
+    
     
     useEffect(() => {
         listaEmbalagem();
@@ -43,7 +45,7 @@ function ListaEmbalagens() {
             <FlatList
                 data={lista}
                 renderItem={({ item } : {item : typeof itemExemplo} ) => (
-                    <Item nome={item.nome} preco={item.preco} quantidade={item.quantidade} />
+                    <Item id={item.id} nome={item.nome} preco={item.preco} quantidade={item.quantidade} />
                 )}
                 onRefresh={() => onRefresh()}
   	            refreshing={refreshing}

@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ScrollView , Text, View, Button } from 'react-native';
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 
+import api from '../../services/api'
 import styles from './styles'
 import ListaEmbalagens from '../ListaEmbalagens';
 
@@ -13,21 +14,26 @@ function CadastraEmbalagem() {
 
     const { navigate } = useNavigation();
 
+    const options = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    };
+
+    const insereEmbalagem = (() => {
+        api.post('embalagem', JSON.stringify({
+            nome: nome,
+            preco: preco,
+            quantidade: quantidade
+        }), options).then(vaiParaListagem)
+    })
+
     function vaiParaListagem() {
         navigate('Listagem Estoque');
     }
 
     return (
-        <><Text style={styles.texto}>Cadastro de embalagem</Text>
-        <ScrollView
-            keyboardShouldPersistTaps="handled"
-            contentContainerStyle={{
-                flex: 1,
-                justifyContent: 'flex-start',
-                alignItems: 'stretch',
-                margin: 16,
-            }}
-        >
+        <View style={styles.container}>
             <View style={styles.input}>
                 <FloatingLabelInput
                     multiline={true}
@@ -42,13 +48,12 @@ function CadastraEmbalagem() {
                 <FloatingLabelInput
                     label="Preço"
                     value={preco}
-                    mask="99.99"
                     keyboardType="numeric"
                     onChangeText={value => setPreco(value)} 
                 />
             </View>
 
-            <View style={styles.input}>
+            <View style={styles.inputFinal}>
                 <FloatingLabelInput
                     label="Quantidade"
                     value={quantidade}
@@ -59,25 +64,10 @@ function CadastraEmbalagem() {
 
             </View>
                 
-
-            <Button
-                title="Salvar Embalagem"
-                onPress={() => fetch('http://192.168.0.99:8080/embalagem', {
-                    method: 'POST',
-                    headers: {
-                      'Accept': 'application/x-www-form-urlencoded',
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        nome: nome,
-                        preco: preco,
-                        quantidade: quantidade
-                    })
-               } ).then(vaiParaListagem)
-            }
-            />
-        </ScrollView></>
-
+            <View style={styles.containerButton}> 
+                <Button title="Salvar Embalagem" onPress={insereEmbalagem}/>
+            </View>
+        </View>
         
     );
 }
