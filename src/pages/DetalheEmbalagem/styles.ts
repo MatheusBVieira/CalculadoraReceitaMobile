@@ -5,6 +5,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 
+    containerButton: {
+        marginHorizontal: 8,
+    },
+
     texto: {
         fontSize: 20,
         color: '#000000',
@@ -19,8 +23,13 @@ const styles = StyleSheet.create({
         marginHorizontal: 8
     },
 
+    inputFinal: {
+        marginVertical: 8,
+        marginHorizontal: 8
+    },
+
     botao: {
-        backgroundColor: '#4169e1',
+        backgroundColor: '#ff2948',
         width: 60,
         height: 60,
         alignSelf: 'flex-end',

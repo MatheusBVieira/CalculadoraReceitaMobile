@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text , Button} from 'react-native';
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons'; 
@@ -37,6 +37,10 @@ function DetalheEmbalagem() {
             preco: preco,
             quantidade: quantidade
         }), options).then(vaiParaListagem)
+    })
+
+    const deletaEmbalagem = (() => {
+        api.delete('embalagem/' + id).then(vaiParaListagem)
     })
     
 
@@ -76,7 +80,7 @@ function DetalheEmbalagem() {
                 />
             </View>
 
-            <View style={styles.input}>
+            <View style={styles.inputFinal}>
                 <FloatingLabelInput
                     label="Quantidade"
                     value={quantidade}
@@ -86,6 +90,11 @@ function DetalheEmbalagem() {
                 />
 
             </View>
+
+            <View style={styles.containerButton}> 
+                <Button title="Deletar Embalagem" onPress={deletaEmbalagem}/>
+            </View>
+
             <BorderlessButton 
                 style={styles.botao} 
                 onPress={atualizaEmbalagem}
