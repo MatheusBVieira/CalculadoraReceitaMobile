@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
-    itemEmbalagem: {
+    itemContent: {
         width: Dimensions.get('window').width,
         marginTop: 8,
         marginLeft: 16,

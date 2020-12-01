@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { ScrollView , Text, View, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 
 import api from '../../services/api'

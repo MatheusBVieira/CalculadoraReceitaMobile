@@ -5,31 +5,32 @@ import { RectButton } from 'react-native-gesture-handler';
 
 import styles from './styles';
 
-interface ItemEmbalagemProps {
+interface ItemProps {
     id : number
     nome: string
     preco: number
     quantidade: number
+    para: string
 }
 
-const ItemEmbalagem: React.FC<ItemEmbalagemProps> = (ItemEmbalagemProps ) => {
+const Item: React.FC<ItemProps> = ( ItemProps ) => {
     const { navigate } = useNavigation();
 
     function vaiParaPaginaDeEdicao() {
-        navigate('Detalhe Embalagem', ItemEmbalagemProps)
+        navigate(ItemProps.para, ItemProps)
     }
 
     return (
-        <View style={styles.itemEmbalagem}>
+        <View style={styles.itemContent}>
             <RectButton onPress={vaiParaPaginaDeEdicao}>
                 <View style={styles.corpoItem}>
-                    <Text style={styles.titulo}>{ItemEmbalagemProps.nome}</Text>
-                    <Text>Preço: R$ {ItemEmbalagemProps.preco}</Text>
-                    <Text>Quantidade: {ItemEmbalagemProps.quantidade}</Text>
+                    <Text style={styles.titulo}>{ItemProps.nome}</Text>
+                    <Text>Preço: R$ {ItemProps.preco}</Text>
+                    <Text>Quantidade: {ItemProps.quantidade}</Text>
                 </View>
             </RectButton>
         </View>
     )
 }
 
-export default ItemEmbalagem;
+export default Item;

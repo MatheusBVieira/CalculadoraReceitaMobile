@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, ScrollView, RefreshControl, FlatList,  } from 'react-native';
+import { View, FlatList,  } from 'react-native';
 
 import styles from './styles';
 import BotaoCadastro from '../../components/BotaoCadastro';
 import api from '../../services/api'
-import ItemEmbalagem from '../../components/ItemEmbalagem';
+import Item from '../../components/Item';
 
 
 
@@ -27,14 +27,8 @@ function ListaEmbalagens() {
         })
     })
 
-    let itemExemplo: { id:number, nome: string, preco: number, quantidade: number};
+    let itemExemplo: { id:number, nome: string, preco: number, quantidade: number, para: string};
 
-    const Item = ({id, nome, preco, quantidade} : typeof itemExemplo) => (
-        <ItemEmbalagem id={id} nome={nome} preco={preco} quantidade={quantidade} />
-    );
-
-    
-    
     useEffect(() => {
         listaEmbalagem();
     }, [])
@@ -45,7 +39,7 @@ function ListaEmbalagens() {
             <FlatList
                 data={lista}
                 renderItem={({ item } : {item : typeof itemExemplo} ) => (
-                    <Item id={item.id} nome={item.nome} preco={item.preco} quantidade={item.quantidade} />
+                    <Item id={item.id} nome={item.nome} preco={item.preco} quantidade={item.quantidade}  para="Detalhe Embalagem"/>
                 )}
                 onRefresh={() => onRefresh()}
   	            refreshing={refreshing}

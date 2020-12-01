@@ -1,18 +1,47 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, FlatList } from 'react-native';
 
-import ItemPequeno from '../../components/ItemPequeno';
+import Item from '../../components/Item'
 import BotaoCadastro from '../../components/BotaoCadastro';
+import api from '../../services/api'
 
 import styles from './styles';
 
 function ListaIngredientes() {
+    const [lista, setLista] = useState([]);
+
+    const [refreshing, setRefreshing] = React.useState(false);
+
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+
+        listaIngredientes();
+        
+        setRefreshing(false);
+    }, []);
+
+    const listaIngredientes = (() => {
+        api.get('ingrediente').then(response => {
+            setLista(response.data['content'])
+        })
+    })
+
+    let itemExemplo: { id:number, nome: string, preco: number, quantidade: number, para: string};
+
+    useEffect(() => {
+        listaIngredientes();
+    }, [])
+
     return (
         <View style={styles.container}>
-            <View>
-                <ItemPequeno titulo='Farinha' preco={2} para='Detalhe Ingrediente'/>
-                <ItemPequeno titulo='Chocolate em pó' preco={5} para='Detalhe Ingrediente'/>
-            </View>
+            <FlatList
+                data={lista}
+                renderItem={({ item } : {item : typeof itemExemplo} ) => (
+                    <Item id={item.id} nome={item.nome} preco={item.preco} quantidade={item.quantidade} para="Detalhe Ingrediente"/>
+                )}
+                onRefresh={() => onRefresh()}
+  	            refreshing={refreshing}
+            />
 
             <BotaoCadastro para='Cadastra Ingrediente' />
         </View>
