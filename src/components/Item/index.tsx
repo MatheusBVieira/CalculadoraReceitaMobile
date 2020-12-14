@@ -10,7 +10,7 @@ interface ItemProps {
     nome: string
     preco: number
     quantidade: number
-    unidadeMedida: string
+    unidadeMedida?: string
     para: string
 }
 

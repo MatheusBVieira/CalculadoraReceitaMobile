@@ -1,11 +1,16 @@
 import React, { useState, useEffect }  from 'react';
 import { View, FlatList } from 'react-native';
+import { useRoute, useNavigation } from '@react-navigation/native'
 
 import ItemReceita from '../../components/ItemReceita';
 import BotaoCadastro from '../../components/BotaoCadastro';
 import api from '../../services/api'
 
 import styles from './styles';
+
+interface ResponseProps {
+    nome: string
+}
 
 function ListaReceitas() {
     const [lista, setLista] = useState([]);
@@ -39,7 +44,7 @@ function ListaReceitas() {
     };
 
     useEffect(() => {
-        listaReceita();
+        onRefresh();
     }, [])
 
     return (
