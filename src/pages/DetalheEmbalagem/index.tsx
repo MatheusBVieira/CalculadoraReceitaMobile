@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text , Button} from 'react-native';
+import { View, Button} from 'react-native';
 import { FloatingLabelInput } from 'react-native-floating-label-input';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons'; 
+import { useRoute, useNavigation } from '@react-navigation/native'
 
 import api from '../../services/api'
 import BotaoEdita from '../../components/BotaoEdita';
-import { useRoute, useNavigation } from '@react-navigation/native'
 import styles from './styles';
 interface EmbalagemDetalhesProps {
     id: number
@@ -61,29 +61,38 @@ function DetalheEmbalagem() {
 
     return (
         <View style={styles.container}>
-            <View style={styles.input}>
+            <View style={styles.inputContainer}>
                 <FloatingLabelInput
                     multiline={true}
                     label="Nome"
                     value={nome}
+                    containerStyles={styles.FloatInputContainer}
+                    labelStyles={styles.FloatInputLabel}
+                    inputStyles={styles.FloatInput}
                     blurOnSubmit={false}
                     showCountdown={true}
                     onChangeText={value => setNome(value)} 
                 />
             </View>
-            <View style={styles.input}>
+            <View style={styles.inputContainer}>
                 <FloatingLabelInput
                     label="Preço"
                     value={preco}
+                    containerStyles={styles.FloatInputContainer}
+                    labelStyles={styles.FloatInputLabel}
+                    inputStyles={styles.FloatInput}
                     keyboardType="numeric"
                     onChangeText={value => setPreco(value)} 
                 />
             </View>
 
-            <View style={styles.inputFinal}>
+            <View style={styles.inputContainerFinal}>
                 <FloatingLabelInput
                     label="Quantidade"
                     value={quantidade}
+                    containerStyles={styles.FloatInputContainer}
+                    labelStyles={styles.FloatInputLabel}
+                    inputStyles={styles.FloatInput}
                     mask="9999"
                     keyboardType="numeric"
                     onChangeText={value => setQuantidade(value)} 
@@ -92,7 +101,7 @@ function DetalheEmbalagem() {
             </View>
 
             <View style={styles.containerButton}> 
-                <Button title="Deletar Embalagem" onPress={deletaEmbalagem}/>
+                <Button color="#000000" title="Deletar Embalagem" onPress={deletaEmbalagem}/>
             </View>
 
             <BorderlessButton 

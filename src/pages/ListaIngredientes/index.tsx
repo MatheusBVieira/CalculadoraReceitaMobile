@@ -26,7 +26,7 @@ function ListaIngredientes() {
         })
     })
 
-    let itemExemplo: { id:number, nome: string, preco: number, quantidade: number, para: string};
+    let itemExemplo: { id:number, nome: string, preco: number, quantidade: number, unidadeMedida: string, para: string};
 
     useEffect(() => {
         listaIngredientes();
@@ -37,7 +37,7 @@ function ListaIngredientes() {
             <FlatList
                 data={lista}
                 renderItem={({ item } : {item : typeof itemExemplo} ) => (
-                    <Item id={item.id} nome={item.nome} preco={item.preco} quantidade={item.quantidade} para="Detalhe Ingrediente"/>
+                    <Item id={item.id} nome={item.nome} preco={item.preco} quantidade={item.quantidade} unidadeMedida={item.unidadeMedida} para="Detalhe Ingrediente"/>
                 )}
                 onRefresh={() => onRefresh()}
   	            refreshing={refreshing}

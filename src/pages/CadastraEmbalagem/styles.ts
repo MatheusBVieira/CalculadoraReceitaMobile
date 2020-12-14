@@ -19,6 +19,18 @@ const styles = StyleSheet.create({
         
     },
 
+    FloatInputContainer : {
+        borderColor: "#000"
+    },
+
+    FloatInputLabel: {
+        color:"#000"
+    },
+
+    FloatInput: {
+        color:"#000"
+    },
+
     input: {
         marginTop: 8,
         marginHorizontal: 8

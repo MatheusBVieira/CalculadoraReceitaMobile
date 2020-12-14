@@ -39,6 +39,9 @@ function CadastraEmbalagem() {
                     multiline={true}
                     label="Nome"
                     value={nome}
+                    containerStyles={styles.FloatInputContainer}
+                    labelStyles={styles.FloatInputLabel}
+                    inputStyles={styles.FloatInput}
                     blurOnSubmit={false}
                     showCountdown={true}
                     onChangeText={value => setNome(value)} 
@@ -48,6 +51,9 @@ function CadastraEmbalagem() {
                 <FloatingLabelInput
                     label="Preço"
                     value={preco}
+                    containerStyles={styles.FloatInputContainer}
+                    labelStyles={styles.FloatInputLabel}
+                    inputStyles={styles.FloatInput}
                     keyboardType="numeric"
                     onChangeText={value => setPreco(value)} 
                 />
@@ -57,6 +63,9 @@ function CadastraEmbalagem() {
                 <FloatingLabelInput
                     label="Quantidade"
                     value={quantidade}
+                    containerStyles={styles.FloatInputContainer}
+                    labelStyles={styles.FloatInputLabel}
+                    inputStyles={styles.FloatInput}
                     mask="9999"
                     keyboardType="numeric"
                     onChangeText={value => setQuantidade(value)} 
@@ -65,7 +74,7 @@ function CadastraEmbalagem() {
             </View>
                 
             <View style={styles.containerButton}> 
-                <Button title="Salvar Embalagem" onPress={insereEmbalagem}/>
+                <Button color="#000000" title="Salvar Embalagem" onPress={insereEmbalagem}/>
             </View>
         </View>
         

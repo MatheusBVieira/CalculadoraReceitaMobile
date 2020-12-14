@@ -7,34 +7,35 @@ import styles from './styles';
 
 interface ItemReceitaProps {
     id: number;
-    titulo: string;
+    nome: string;
     ingredientes: Array<string>;
+    quantidadeProduzida: number;
+    precoIngredientes: number;
+    precoEmbalagem : number;
+    precoTotal: number;
+    precoTotalPorUnidade: number;
     embalagem: string;
 }
 
-const ItemReceita: React.FC<ItemReceitaProps> = ({ id, titulo, ingredientes, embalagem }) => {
+const ItemReceita: React.FC<ItemReceitaProps> = (ItemReceitaProps) => {
     const { navigate } = useNavigation();
 
-    function vaiParaEditaReceita() {
-        navigate('Detalhe Receita')
+    function vaiParaPaginaDeEdicao() {
+        navigate('Detalhe Receita', ItemReceitaProps)
     }
 
     return (
-        <View style={styles.container}>
-            <RectButton onPress={vaiParaEditaReceita}>
-                <Text style={styles.tituloReceita}>{ titulo }</Text>
-
-                <View style={styles.corpoReceita}>
-                    <View>
-                        {ingredientes.map((ingrediente => <Text key={id++} style={styles.ingredienteReceita}>{ingrediente}</Text>))}
-                    </View>
-                    <View style={styles.corpoEsquerdoReceita}>
-                        <Text style={styles.embalagemReceita}>{ embalagem }</Text>
-                        <Text style={styles.custo}>R$ 10,00</Text>
-                    </View>
+        <View style={styles.itemContent}>
+            <RectButton onPress={vaiParaPaginaDeEdicao}>
+                <View style={styles.corpoItem}>
+                    <Text style={styles.titulo}>{ItemReceitaProps.nome}</Text>
+                    <Text>Preço Por Unidade: R$ {ItemReceitaProps.precoTotalPorUnidade}</Text>
+                    <Text>Preço Total: R$ {ItemReceitaProps.precoTotal}</Text>
+                    <Text>Quantidade Produzida: {ItemReceitaProps.quantidadeProduzida}</Text>
                 </View>
             </RectButton>
         </View>
+
     )
 }
 

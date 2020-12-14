@@ -40,11 +40,9 @@ function CadastraIngrediente() {
         label: 'Selecione a unidade de medida...',
         value: null,
         color: '#9EA0A4',
-      };
+    };
 
     return (
-
-        
         <View style={styles.container}>
             <View style={styles.inputContainer}>
                 <FloatingLabelInput
@@ -97,7 +95,7 @@ function CadastraIngrediente() {
             />
                 
             <View style={styles.containerButton}> 
-                <Button title="Salvar Ingrediente" onPress={insereIngrediente}/>
+                <Button color='#000' title="Salvar Ingrediente" onPress={insereIngrediente}/>
             </View>
         </View>
         
@@ -127,6 +125,6 @@ const pickerSelectStyles = StyleSheet.create({
       color: 'black',
       paddingRight: 30, // to ensure the text is never behind the icon
     },
-  });
+});
 
 export default CadastraIngrediente;

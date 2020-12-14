@@ -1,43 +1,28 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
-    container: {
-        width: 300,
-        margin: 10,
+    itemContent: {
+        width: Dimensions.get('window').width,
+        marginTop: 8,
+        marginLeft: 16,
+        marginRight: 16,
         alignSelf: 'center',
-        borderColor: '#000000',
-        borderWidth: 1,
-        borderRadius: 8
+        borderBottomColor: '#000000',
+        borderBottomWidth: 1,
+        borderRadius: 8,
     },
 
-    tituloReceita: {
+    titulo: {
+        alignSelf: 'flex-start',
         fontSize: 20,
-        alignSelf: 'center'
+        marginLeft: -8
     },
 
-    corpoReceita: {
-        marginVertical: 5,
-        flexDirection: 'row',
+    corpoItem: {
         justifyContent: 'space-between',
-    },
-
-    ingredienteReceita: {
-        marginLeft: 10
-    },
-
-    corpoEsquerdoReceita: {
-        justifyContent: 'space-between'
-    },
-
-    embalagemReceita: {
-        marginRight: 10
-    },
-
-    custo: {
-        alignSelf: 'flex-end',
-        marginRight: 20
+        marginLeft: 16,
+        marginBottom: 8
     }
 })
 
 export default styles;
-

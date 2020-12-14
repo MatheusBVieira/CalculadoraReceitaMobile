@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    
     container: {
         flex: 1,
     },
@@ -15,17 +16,32 @@ const styles = StyleSheet.create({
         marginTop: 8,
         marginLeft: 8,
         marginRight: 8
-        
     },
 
-    input: {
+    FloatInputContainer : {
+        borderColor: "#000"
+    },
+
+    FloatInputLabel: {
+        color:"#000"
+    },
+
+    FloatInput: {
+        color:"#000"
+    },
+    
+    inputContainer: {
         marginTop: 8,
         marginHorizontal: 8
     },
 
-    inputFinal: {
+    inputContainerFinal: {
         marginVertical: 8,
         marginHorizontal: 8
+    },
+
+    inputSelect: {
+        color: '#000'
     },
 
     botao: {
@@ -41,6 +57,8 @@ const styles = StyleSheet.create({
         bottom: 10,                                                    
         right: 10,
     }
+
+
 });
 
 export default styles;
